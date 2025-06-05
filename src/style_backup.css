@@ -1,0 +1,203 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #001f3f, #003366);
+  color: white;
+  text-align: center;
+}
+
+.game-container {
+  padding: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.layout-with-prizes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.prize-board {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 0;
+}
+
+.prize-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prize-value-box {
+  background-color: gold;
+  color: black;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 100px;
+  text-align: center;
+  box-shadow: 0 0 5px #000;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.prize-value-box.dimmed {
+  background-color: #333;
+  color: #777;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+.game-logo {
+  width: 250px;
+  margin: 20px auto;
+  display: block;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  justify-items: center;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.case {
+  width: 100px;
+  height: 80px;
+  background: transparent;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.case img {
+  width: 100%;
+  height: auto;
+}
+
+.case span.case-number {
+  position: absolute;
+  z-index: 2;
+  font-size: 22px;
+  font-weight: bold;
+  color: black;
+}
+
+.case span.prize-value {
+  position: absolute;
+  z-index: 2;
+  font-size: 22px;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+.case.opened {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case.selected {
+  outline: 3px solid yellow;
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px yellow;
+  }
+  to {
+    box-shadow: 0 0 15px yellow;
+  }
+}
+
+.case-counter {
+  font-size: 20px;
+  margin: 15px auto;
+}
+
+.prize-mode-selector {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.prize-mode-selector select {
+  padding: 5px 10px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.prize-mode-selector button {
+  margin-top: 10px;
+  padding: 5px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #ffc107;
+  border: none;
+  border-radius: 5px;
+}
+
+.banker-popup {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #111;
+  color: #fff;
+  padding: 30px;
+  border: 2px solid #ffc107;
+  border-radius: 10px;
+  z-index: 1000;
+  max-width: 400px;
+  width: 80%;
+  box-shadow: 0 0 15px #000;
+}
+
+.banker-popup h3 {
+  margin-top: 10px;
+  font-size: 22px;
+  color: #ffc107;
+}
+
+.banker-popup button {
+  margin: 10px;
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+}
+
+.banker-popup .accept {
+  background-color: #4caf50;
+  color: white;
+}
+
+.banker-popup .decline {
+  background-color: #f44336;
+  color: white;
+}
+
+canvas {
+  z-index: 9999 !important;
+  pointer-events: none;
+}
